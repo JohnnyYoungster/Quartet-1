@@ -5,36 +5,32 @@ import {
     Route,
     Link,
 } from 'react-router-dom';
-import About from './pages/about/index';
-import Home from './pages/home';
-import Users from './pages/users';
+import Performer from './pages/performer/index';
+import Audience from './pages/audience/index';
 
 const App = () => {
     return (
         <Router>
             <div>
+                <div>
+
+                </div>
                 <nav>
                     <ul>
                         <li>
-                            <Link to='/'>Home</Link>
+                            <Link to='/'>Performer</Link>
                         </li>
                         <li>
-                            <Link to='/about'>About</Link>
-                        </li>
-                        <li>
-                            <Link to='/users'>Users</Link>
+                            <Link to='/audience'>Audience</Link>
                         </li>
                     </ul>
                 </nav>
                 <Switch>
-                    <Route path='/about'>
-                        <About />
-                    </Route>
-                    <Route path='/users'>
-                        <Users />
+                    <Route path='/audience'>
+                        <Audience />
                     </Route>
                     <Route path='/'>
-                        <Home />
+                        <Performer />
                     </Route>
                 </Switch>
             </div>
