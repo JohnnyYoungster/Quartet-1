@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import Performer from './pages/performer/index';
 import Audience from './pages/audience/index';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import Player from './components/player';
 import AvatarStage from './components/avatarStage';
 
