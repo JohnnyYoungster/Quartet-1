@@ -1,7 +1,7 @@
 import "./glowstickanimation.css"
 import React from "react"
 import Animate from "rc-animate"
-import glowStickLogo from "./../image/glowStickLogo.png"
+import glowStickLogo from "../../image/glowStickLogo.png"
 import Swing from "../glowstickwave/GlowStickWave"
 
 

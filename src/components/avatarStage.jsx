@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import BottomBar from '../bottombar/BottomBar';
-import userAvatar from "./../image/userAvatar.png"
+import BottomBar from './bottombar/BottomBar';
+import userAvatar from "../image/userAvatar.png"
 import Draggable from "react-draggable"
 import "./avatarStage.css"
-import Avatars from '../avatars/Avatars';
-import ShowGlowStick from '../glowstickanimation/GlowStickAnimation';
-import ShowHeart from '../heartanimation/HeartAnimation';
+import Avatars from '../animations/avatars/Avatars';
+import ShowGlowStick from '../animations/glowstickanimation/GlowStickAnimation';
+import ShowHeart from '../animations/heartanimation/HeartAnimation';
 
 const Layout = styled.div`
 height: 200px;

@@ -1,7 +1,7 @@
 import "./bottombar.css"
 //import glowStickLogo from "./../image/glowStickLogo.png"
 //import heartLogo from "./../image/heartLogo.png"
-import jumpLogo from "./../image/jumpLogo.png"
+import jumpLogo from "../../image/jumpLogo.png"
 //import Swing from "./../glowstickanimation/GlowStickAnimation.jsx"
 
 
@@ -29,7 +29,7 @@ export default function BottomBar() {
             <img className="heartLogo" src={heartLogo} alt="heartLogo" onClick={heartClick} />*/}
 
             <img className="jumpLogo" src={jumpLogo} alt="jumpLogo" onClick={jumpClick} />
-            
+
         </div>
     )
 }
@@ -38,7 +38,7 @@ export default function BottomBar() {
 
 /*
 export default class BottomBar extends React.Component{
-    
+
     constructor() {
       super(...arguments);
       this.state = {
@@ -48,14 +48,14 @@ export default class BottomBar extends React.Component{
         'onClick',
       ].forEach((method) => this[method] = this[method].bind(this));
     }
-    
+
     onClick(){
       this.setState({
         show: !this.state.show,
       });
     }
-    
-    
+
+
     render(){
       return (
         <>
@@ -68,8 +68,8 @@ export default class BottomBar extends React.Component{
         </div>
 
 
-        
-          
+
+
 
           <Draggable>
           <div className="code-box-shape">
@@ -77,17 +77,17 @@ export default class BottomBar extends React.Component{
               transitionName="fade"
               transitionAppear
             >
-            {this.state.show ? 
+            {this.state.show ?
               <img  className="heart" src={heart} alt="heart" /> : null}
             </Animate>
-            
+
             <img className="userAvatar" src={userAvatar} alt="userAvatar" />
-            
-          </div>     
-          </Draggable>        
+
+          </div>
+          </Draggable>
         </>
-        
-        
+
+
       );
     }
   }
