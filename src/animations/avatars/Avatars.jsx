@@ -60,18 +60,18 @@ export default class Avatars extends React.Component {
             <img className="avatar6" src={avatar2} alt="avatar2" />
 
             <img className="avatar7" src={avatar1} alt="avatar2" />
-            
+
             <img className="avatar8" src={avatar2} alt="avatar2" />
         </TweenOne>
-        
-        
-        
+
+
+
         <div className="minigamecrowd">
         <img className="avatar9" src={avatar1} alt="avatar2" />
         <img className="avatar10" src={avatar2} alt="userAvatar" />
-        <img className="avatar11" src={avatar2} alt="avatar2" />   
+        <img className="avatar11" src={avatar2} alt="avatar2" />
         <img className="avatar12" src={avatar1} alt="userAvatar" />
-        <img className="avatar13" src={avatar2} alt="avatar2" />   
+        <img className="avatar13" src={avatar2} alt="avatar2" />
         </div>
 
       </div>

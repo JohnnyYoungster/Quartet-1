@@ -2,7 +2,7 @@ import "./glowstickanimation.css"
 import React from "react"
 import Animate from "rc-animate"
 import glowStickLogo from "./../image/glowStickLogo.png"
-import Swing from "./../glowstickwave/GlowStickWave"
+import Swing from "../glowstickwave/GlowStickWave"
 
 
 export default class ShowGlowStick extends React.Component{
