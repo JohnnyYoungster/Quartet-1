@@ -6,7 +6,7 @@ import Swing from "./../glowstickwave/GlowStickWave"
 
 
 export default class ShowGlowStick extends React.Component{
-    
+
     constructor() {
       super(...arguments);
       this.state = {
@@ -16,14 +16,14 @@ export default class ShowGlowStick extends React.Component{
         'onClick',
       ].forEach((method) => this[method] = this[method].bind(this));
     }
-    
+
     onClick(){
       this.setState({
         show: !this.state.show,
       });
     }
-    
-    
+
+
     render(){
       return (
         <>
@@ -33,13 +33,10 @@ export default class ShowGlowStick extends React.Component{
                 transitionName="fade"
                 transitionAppear
                 >
-                {this.state.show ? 
+                {this.state.show ?
                 <Swing/> : null}
                 </Animate>
-         
         </>
-        
-        
       );
     }
   }
