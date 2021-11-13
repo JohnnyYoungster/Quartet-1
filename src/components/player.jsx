@@ -1,20 +1,27 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import styled from 'styled-components';
-import mp3_file from './sample.mp3';
-import audio_file1 from './megalovania_bass.mp3'
-import audio_file2 from './megalovania_melody.mp3'
-import audio_file3 from './megalovania_drums.mp3'
-import audio_file_combined from './megalovania_combined.mp3'
+import mp3_file from './resources/sample.mp3';
+import audio_file1 from './resources/megalovania_bass.mp3'
+import audio_file2 from './resources/megalovania_melody.mp3'
+import audio_file3 from './resources/megalovania_drums.mp3'
+import audio_file_combined from './resources/megalovania_combined.mp3'
+// import movie_left from './resources/megalovania_left.mp4'
+// import movie_center from './resources/megalovania_center.mp4'
+// import movie_right from './resources/megalovania_right.mp4'
 import ReactPlayer from 'react-player'
 
 const Layout = styled.div`
 height: 600px;
 background-color: black;
 `;
-const links = [
-	"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-	"http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+const resources = [
+	"https://streamable.com/lb2qtx",
+	"https://streamable.com/2s91p6",
+	"https://streamable.com/qhr92h"
   ];
+// const resources=[
+// 	movie_left,movie_center,movie_right
+// ]
 const Player = () => {
 	// const [isPlayingVideo, setPlayingVideo] = useState(false);
 	// const [isPlayingMusic, setPlayingMusic] = useState(false);
@@ -24,12 +31,12 @@ const Player = () => {
 	// const audio_drums = useMemo(() => new Audio(audio_file3), []);
 	const audio_combined = useMemo(() => new Audio(audio_file_combined), []);
 	const [readyCount, setReadyCount] = useState(0);
-	  const onReady = () => {
+	  const onReady = useCallback(() => {
 		setReadyCount(readyCount + 1);
-	  };
+	  },[]);
 	
 	  useEffect(() => {
-		if (readyCount === links.length) {
+		if (readyCount === resources.length) {
 		  setPlaying(true);
 		}
 	  }, [readyCount]);
@@ -51,8 +58,11 @@ const Player = () => {
 			<div>Player</div>
 			<button onClick={play}>Play</button> 
          <button onClick={pause}>Pause</button>
-			{links.map((url) => (
-        <ReactPlayer key={url} playing={false} onReady={onReady} url={url} volume={1}/>
+			{resources.map((url) => (
+        <ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
+		width="40%"
+		height="40%"
+		/>
       ))}
         </Layout>
     );
