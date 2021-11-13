@@ -9,9 +9,10 @@ import audio_file_combined from './resources/megalovania_combined.mp3'
 // import movie_center from './resources/megalovania_center.mp4'
 // import movie_right from './resources/megalovania_right.mp4'
 import ReactPlayer from 'react-player'
+import "./player.css"
 
 const Layout = styled.div`
-height: 600px;
+height: 520px;
 background-color: black;
 `;
 const resources = [
@@ -58,12 +59,13 @@ const Player = () => {
 			<div>Player</div>
 			<button onClick={play}>Play</button> 
          <button onClick={pause}>Pause</button>
+		 <div className='player-wrapper'>
 			{resources.map((url) => (
         <ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
-		width="40%"
-		height="40%"
+		// width="300px"
+		// height="300px"
 		/>
-      ))}
+      ))}</div>
         </Layout>
     );
 };

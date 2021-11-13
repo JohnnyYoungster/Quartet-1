@@ -1,8 +1,9 @@
-/* .player-wrapper {
-    margin: auto;
+.player-wrapper {
+    /* margin: auto;
     position: relative;
-    padding-top: 0% 
-} */
+    padding-top: 0%  */
+    display: flex;
+}
  
 /* .movie_left {
     position: relative;
