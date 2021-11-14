@@ -3,49 +3,49 @@
     height: 8%;
     width: 15%;
     display: flex;
-    top: 30%;
+    top: 45%;
     left: 3%;
-
+    /*background-color: chartreuse;*/
 }
 
 
 
 .minigamecrowd{
     position: absolute;
-    left: 1300px;
-    height: 80%;
+    left: 1100px;
+    height: 100%;
     display: flex;
-    top: 80%;
+    top: 0%;
 }
 
 
 
 .avatar2{
-    margin-left: 2%;
+    margin-left: 50px;
 }
 
 .avatar3{
-    margin-left: 2%;
+    margin-left: 100px;
 }
 
 .avatar4{
-    margin-left: 2%;
+    margin-left: 150px;
 }
 
 .avatar5{
-    margin-left: 2%;
+    margin-left: 200px;
 }
 
 .avatar6{
-    margin-left: 2%;
+    margin-left: 250px;
 }
 
 .avatar7{
-    margin-left: 30%;
+    margin-left: 300px;
 }
 
 .avatar8{
-    margin-left: 2%;
+    margin-left: 350px;
 }
 
 .avatar9{
@@ -64,3 +64,5 @@
 .avatar13{
     margin-left: 3%;
 }
+
+

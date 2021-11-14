@@ -7,6 +7,10 @@ import "./avatarStage.css"
 import Avatars from '../animations/avatars/Avatars';
 import ShowGlowStick from '../animations/glowstickanimation/GlowStickAnimation';
 import ShowHeart from '../animations/heartanimation/HeartAnimation';
+//import JumpGroup from '../animations/jumpgroup/JumpGroup';
+
+
+
 
 const Layout = styled.div`
 height: 200px;
@@ -18,14 +22,18 @@ const AvatarStage = () => {
         <>
         <Layout>
             <Draggable>
-                <img className="userAvatar" src={userAvatar} alt="userAvatar" />
+                <div>
+                <img className="User" src={userAvatar} alt="userAvatar" />
+                </div>
             </Draggable>
-
+            
             <Avatars></Avatars>
         </Layout>
-
+        
         <ShowGlowStick></ShowGlowStick>
         <ShowHeart></ShowHeart>
+        {/*<JoinJumpGroup></JoinJumpGroup>*/}
+        
         <BottomBar></BottomBar>
         </>
     );

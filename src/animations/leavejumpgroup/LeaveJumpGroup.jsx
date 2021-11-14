@@ -1,11 +1,10 @@
-import "./glowstickanimation.css"
+import "./leavejumpgroup.css"
 import React from "react"
-import Animate from "rc-animate"
-import glowStickLogo from "../../image/glowStickLogo.png"
-import Swing from "../glowstickwave/GlowStickWave"
+import Animate from 'rc-animate';
+import JoinPrompt from "../../components/prompt/JoinPrompt";
 
 
-export default class ShowGlowStick extends React.Component{
+export default class JoinJumpGroup extends React.Component{
 
     constructor() {
       super(...arguments);
@@ -21,30 +20,24 @@ export default class ShowGlowStick extends React.Component{
       this.setState({
         show: !this.state.show,
       });
-
-      setTimeout(() => {this.setState({
-        show: !this.state.show,
-      })
-        
-      }, 3000);
     }
 
 
     render(){
       return (
         <>
-            <img className="glowStickLogo" src={glowStickLogo} alt="glowStickLogo"  onClick={this.onClick}/>
+            <div className="Label" onClick={this.onClick}> #Jumping group</div>
 
             <Animate
                 transitionName="fade"
                 transitionAppear
                 >
                 {this.state.show ?
-                <Swing/> : null}
+                <JoinPrompt /> : null}
                 </Animate>
         </>
+
+
       );
     }
   }
-
-

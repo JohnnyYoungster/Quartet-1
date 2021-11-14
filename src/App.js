@@ -11,6 +11,7 @@ import Audience from './pages/audience/index';
 import Player from './components/player';
 import AvatarStage from './components/avatarStage';
 
+
 const App = () => {
     return (
         <Router>
@@ -34,9 +35,12 @@ const App = () => {
                     <Route path='/'>
                         <Performer />
                     </Route>
+
                 </Switch>
             </div>
+            
         </Router>
+
     );
 };
 
