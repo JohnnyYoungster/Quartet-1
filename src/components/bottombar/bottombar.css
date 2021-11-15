@@ -12,16 +12,18 @@
 
 }
 
-.glowStickLogo{
-    margin-left: 40%;
-}
 
 .heartLogo{
-    margin-left: 5%;
+    margin-left: 35%;
+    
 }
 
 .jumpLogo{
-    margin-left: 45%;
+    margin-left: 10%;
 }
 
+.glow{
+margin-left: 10%;
+width: 5%;
+}
 

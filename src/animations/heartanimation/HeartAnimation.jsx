@@ -1,9 +1,9 @@
 import "./heartanimation.css"
 import React from "react"
 import Animate from 'rc-animate';
-import heartLogo from "../../image/heartLogo.png"
+//import heartLogo from "../../image/heartLogo.png"
 import heart from "../../image/heart.png"
-
+import { react } from 'react.eval'
 
 
 export default class ShowHeart extends React.Component{
@@ -16,6 +16,7 @@ export default class ShowHeart extends React.Component{
       [
         'onClick',
       ].forEach((method) => this[method] = this[method].bind(this));  
+      react.init(this);
     }
 
     onClick(){
@@ -36,7 +37,7 @@ export default class ShowHeart extends React.Component{
     render(){
       return (
         <>
-            <img className="heartLogo" src={heartLogo} alt="heartLogo"  onClick={this.onClick}/>
+            <div className="show-Heart" onClick={this.onClick}/>
 
             <Animate
                 transitionName="fade"

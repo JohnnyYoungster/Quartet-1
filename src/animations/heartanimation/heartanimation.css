@@ -1,11 +1,9 @@
-.heartLogo{
-    width: 3%;
-}
 
 .Heart{
-    width: 5%;
-}
-
+    width: 100%;
+    position: absolute;
+    margin-top: -50px;
+  }
 
 .fade-enter {
     opacity: 0;

@@ -3,14 +3,16 @@ import JumpPrompt from "../../image/jumpPrompt.png"
 
 import React from "react";
 
-import Button from "antd/lib/button"
+import Button from "antd/lib/button";
+//import JoinJumpGroup from "../../animations/joinjumpgroup/JoinJumpGroup";
 
 
 export default function JoinPrompt(){
   
   
   const join =(event)=>{
-    window.location.href="https://google.com"
+    //react('glowstick.onClick')
+    //window.location.href="https://google.com"
 }
   
     return (

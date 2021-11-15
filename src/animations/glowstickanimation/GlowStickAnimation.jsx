@@ -1,9 +1,9 @@
 import "./glowstickanimation.css"
 import React from "react"
 import Animate from "rc-animate"
-import glowStickLogo from "../../image/glowStickLogo.png"
+//import glowStickLogo from "../../image/glowStickLogo.png"
 import Swing from "../glowstickwave/GlowStickWave"
-
+import { react } from 'react.eval'
 
 export default class ShowGlowStick extends React.Component{
 
@@ -15,6 +15,7 @@ export default class ShowGlowStick extends React.Component{
       [
         'onClick',
       ].forEach((method) => this[method] = this[method].bind(this));
+      react.init(this);
     }
 
     onClick(){
@@ -26,14 +27,14 @@ export default class ShowGlowStick extends React.Component{
         show: !this.state.show,
       })
         
-      }, 3000);
+      }, 5000);
     }
 
 
     render(){
       return (
         <>
-            <img className="glowStickLogo" src={glowStickLogo} alt="glowStickLogo"  onClick={this.onClick}/>
+            <div  onClick={this.onClick}/>
 
             <Animate
                 transitionName="fade"

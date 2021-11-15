@@ -1,34 +1,34 @@
 import "./bottombar.css"
-//import glowStickLogo from "./../image/glowStickLogo.png"
-//import heartLogo from "./../image/heartLogo.png"
+import heartLogo from "../../image/heartLogo.png"
 import jumpLogo from "../../image/jumpLogo.png"
+import glow from "../../image/glowstick.png"
 //import Swing from "./../glowstickanimation/GlowStickAnimation.jsx"
-
+import { react } from 'react.eval'
 
 
 
 export default function BottomBar() {
-    //const glowStickClick =(event)=>{
-    //    console.log("glowStickClicked")
-    //}
+    const glowStickClick =(event)=>{
+      react('glowstick.onClick')
+    }
 
-    //const heartClick =(event)=>{
-    //    console.log("heartClick")
-    //}
+    const heartClick =(event)=>{
+      react('heart.onClick')
+    }
 
 
     const jumpClick =(event)=>{
-        console.log("jumpClick")
+        console.log("Jump")
     }
 
 
     return (
         <div className = "bottom">
-            {/*<img className="glowStickLogo" src={glowStickLogo} alt="glowStickLogo" onClick={glowStickClick} />
+            
 
-            <img className="heartLogo" src={heartLogo} alt="heartLogo" onClick={heartClick} />*/}
-
+            <img className="heartLogo" src={heartLogo} alt="heartLogo" onClick={heartClick} />
             <img className="jumpLogo" src={jumpLogo} alt="jumpLogo" onClick={jumpClick} />
+            <img className="glow" src={glow} alt="glow" onClick={glowStickClick} />
 
         </div>
     )

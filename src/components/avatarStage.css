@@ -1,5 +1,11 @@
-.User{
-    margin-left: 45%;
-    margin-top: 7%;
-    /*background-color: brown;*/
+
+
+.userBlock{ 
+   margin-left: 50%;
+   width: 5%;
+   position: relative;
+   padding-top: 70px;
 }
+
+
+

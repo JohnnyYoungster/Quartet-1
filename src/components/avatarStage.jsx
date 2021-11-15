@@ -7,7 +7,6 @@ import "./avatarStage.css"
 import Avatars from '../animations/avatars/Avatars';
 import ShowGlowStick from '../animations/glowstickanimation/GlowStickAnimation';
 import ShowHeart from '../animations/heartanimation/HeartAnimation';
-//import JumpGroup from '../animations/jumpgroup/JumpGroup';
 
 
 
@@ -21,17 +20,27 @@ const AvatarStage = () => {
     return (
         <>
         <Layout>
-            <Draggable>
-                <div>
-                <img className="User" src={userAvatar} alt="userAvatar" />
-                </div>
-            </Draggable>
             
+            <Draggable>
+                
+                
+                <div className= "userBlock">
+                <ShowHeart id='heart' className="showHeart"/>
+                <ShowGlowStick id='glowstick'/>
+                <img className="User" src={userAvatar} alt="userAvatar"/>
+                       
+            
+                </div>
+                
+               
+            
+            </Draggable>
+          
+
             <Avatars></Avatars>
         </Layout>
         
-        <ShowGlowStick></ShowGlowStick>
-        <ShowHeart></ShowHeart>
+        
         {/*<JoinJumpGroup></JoinJumpGroup>*/}
         
         <BottomBar></BottomBar>
