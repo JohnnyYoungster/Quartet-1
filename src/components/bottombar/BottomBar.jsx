@@ -29,7 +29,7 @@ export default function BottomBar() {
             <img className="heartLogo" src={heartLogo} alt="heartLogo" onClick={heartClick} />*/}
 
             <img className="jumpLogo" src={jumpLogo} alt="jumpLogo" onClick={jumpClick} />
-            
+
         </div>
     )
 }

@@ -1,0 +1,20 @@
+.player-wrapper {
+    /* margin: auto;
+    position: relative;
+    padding-top: 0%  */
+    display: flex;
+}
+ 
+/* .movie_left {
+    position: relative;
+    padding-left: 56.25%  
+}
+.movie_center {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.movie_right {
+    position:relative;
+    left: 0;
+}  */

@@ -1,70 +1,73 @@
-import React from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import styled from 'styled-components';
-import mp3_file from './sample.mp3';
-
+import mp3_file from './resources/sample.mp3';
+import audio_file1 from './resources/megalovania_bass.mp3'
+import audio_file2 from './resources/megalovania_melody.mp3'
+import audio_file3 from './resources/megalovania_drums.mp3'
+import audio_file_combined from './resources/megalovania_combined.mp3'
+// import movie_left from './resources/megalovania_left.mp4'
+// import movie_center from './resources/megalovania_center.mp4'
+// import movie_right from './resources/megalovania_right.mp4'
+import ReactPlayer from 'react-player'
+import "./player.css"
 
 const Layout = styled.div`
-height: 200px;
-background-color: yellow;
+height: 520px;
+background-color: black;
 `;
-// const tracks = [
-//     {
-//       title: string,
-//       artist: string,
-//       audioSrc: string | import,
-//           image: string,
-//       color: string,
-//     },
-//     ...
-//     ...
-//   ];
-
-// const audioElement = new Audio(audio source);
-class Music extends React.Component {
-    constructor(props) {
-    super(props);
-    this.state = {
-      play: false,
-      pause: true,
-    }
-    // this.url = "http://streaming.tdiradio.com:8000/house.mp3";
-    // this.src="sample.mp3";
-    this.audio = new Audio(mp3_file);
-    // this.src="";
-    // this.audio=new Audio(this.url);
-  }
-
-  play = () => {
-  this.setState({ play: true, pause: false })
-    this.audio.play();
-  }
-  
-  pause = () => {
-  this.setState({ play: false, pause: true })
-    this.audio.pause();
-  }
-  
-  render() {
-    
-  return (
-    <div>
-      <button onClick={this.play}>Play</button>
-      <button onClick={this.pause}>Pause</button>
-    </div>
-    );
-  }
-}
-
-// ReactDOM.render(
-//   <Music />,
-//   document.getElementById('container')
-// );
-
+const resources = [
+	"https://streamable.com/lb2qtx",
+	"https://streamable.com/2s91p6",
+	"https://streamable.com/qhr92h"
+  ];
+// const resources=[
+// 	movie_left,movie_center,movie_right
+// ]
 const Player = () => {
+	// const [isPlayingVideo, setPlayingVideo] = useState(false);
+	// const [isPlayingMusic, setPlayingMusic] = useState(false);
+	const [isPlaying, setPlaying] = useState(false);
+	// const audio_bass = useMemo(() => new Audio(audio_file1), []);
+	// const audio_melody = useMemo(() => new Audio(audio_file2), []);
+	// const audio_drums = useMemo(() => new Audio(audio_file3), []);
+	const audio_combined = useMemo(() => new Audio(audio_file_combined), []);
+	const [readyCount, setReadyCount] = useState(0);
+	  const onReady = useCallback(() => {
+		setReadyCount(readyCount + 1);
+	  },[]);
+	
+	  useEffect(() => {
+		if (readyCount === resources.length) {
+		  setPlaying(true);
+		}
+	  }, [readyCount]);
+
+	useEffect(() => {
+		if (isPlaying) {
+			audio_combined.play();
+		} else {
+			audio_combined.pause();
+		}
+	}, [ isPlaying, audio_combined]);
+	
+	const play= useCallback(()=>{setPlaying(true)},[]);
+	const pause= useCallback(()=>{setPlaying(false)},[]);
+
     return (
-        <Layout>Player
-            <Music> </Music>
+        <Layout>
+			
+			<div>Player</div>
+			<button onClick={play}>Play</button> 
+         <button onClick={pause}>Pause</button>
+		 <div className='player-wrapper'>
+			{resources.map((url) => (
+        <ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
+		// width="300px"
+		// height="300px"
+		/>
+      ))}</div>
         </Layout>
     );
 };
+
 export default Player;

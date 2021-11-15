@@ -10,7 +10,7 @@ export default function JoinPrompt(){
   
   
   const join =(event)=>{
-    console.log("Join in the group jump")
+    window.location.href="https://google.com"
 }
   
     return (
