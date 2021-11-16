@@ -2,7 +2,6 @@ import React from 'react';
 import './index.css';
 import clapImg from '../../image/clap.png';
 
-var clickedTime; var createdTime; var reactionTime; 
 var decreaseFlag;
 var score = 0;
 
@@ -34,8 +33,8 @@ function decreaseBorder () {
 function borderDecrease() {
   var targetBorder = document.getElementById("stack");
   if (targetBorder != null) {
-    document.getElementById("stack").style.top = 100 + "px";
-    document.getElementById("stack").style.left = 100 + "px"; 
+    document.getElementById("stack").style.top = -25 + "px";
+    document.getElementById("stack").style.left = -25 + "px"; 
     document.getElementById("stack").style.display="block";
 
     startDecrease();
@@ -46,18 +45,38 @@ function borderDecrease() {
   }
 }
 
+function openSideWindow() {
+  document.getElementById("minigameWindow").style.width = "400px";
+}
+
+function closeSideWindow() {
+  document.getElementById("minigameWindow").style.transition = "0s";
+  document.getElementById("minigameWindow").style.width = "0px";
+}
+
 function Audience() {
   return (
     <div className="App">
-      <h1>Clap to the Beat!</h1>
-		  <p>Press the orange clap button when the inner red outline matches with the shape of the button. </p>
-		  <p id="displayScore"></p>
-      <div class = "container">
-        <div id="box">
-          <img src = {clapImg}></img>
+      <div id="minigameWindow" class="sideWindow">
+        <div id="closeButton">X</div>
+
+        <p>Clap to the Beat!</p>
+        <p>Press the orange clap button when the inner red outline matches with the shape of the button.</p>
+
+        <p id="displayScore" color="white"></p>
+        <div class = "container">
+          <div id="box">
+            <img src = {clapImg}></img>
+          </div>
+          <div id="stack"></div>
         </div>
-        <div id="stack"></div>
+
       </div>
+
+      <div id="button"></div>
+
+
+
     </div>
   );
 }
@@ -75,6 +94,27 @@ window.onload = function() {
   waitForLoad("box", function(){
     initButton();
   });
+  waitForLoad("button", function(){
+    initOpenButton();
+  });
+
+}
+
+function initOpenButton() {
+  document.getElementById("button").onclick = function()
+  {
+    openSideWindow();
+    waitForLoad("closeButton", function() {
+      initCloseButton();
+    });
+  }
+}
+
+function initCloseButton() {
+  document.getElementById("closeButton").onclick = function()
+  {
+    closeSideWindow();
+  }
 }
 
 function initButton() {
@@ -88,20 +128,26 @@ function initButton() {
     else if ((temp > 350) || (temp < 210)) {
       score = score + 300;
     }
+    else if (score > 200) {
+      score = score - 200;
+    }
+    else {
+      score = 0;
+    }
 
     document.getElementById("displayScore").innerHTML="Your Score is: " + score;
 
     makeBox();
   }
-  
+  document.getElementById("displayScore").innerHTML="Your Score is: " + score;
   var t = setInterval(borderDecrease, 1000);
   setTimeout(function(){ makeBox() }, 1000);
 }
 
 function makeBox() {
   setTimeout(function() {			
-	  document.getElementById("box").style.top = 200 + "px";
-	  document.getElementById("box").style.left = 200 + "px";
+	  document.getElementById("box").style.top = 75 + "px";
+	  document.getElementById("box").style.left = 75 + "px";
 
 	  document.getElementById("box").style.backgroundColor="#FFA500";
 	  document.getElementById("box").style.display="block";	

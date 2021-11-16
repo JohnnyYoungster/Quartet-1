@@ -3,12 +3,22 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 500px;
   height: 600px;
   position: relative;
   margin: 20px;
   background-color: transparent;
   z-index: 1;
+}
+
+#button {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  display: solid;
+  position: absolute; 
+  z-index: 9;
+  border-radius: 50px;
 }
 
 #box {
@@ -33,50 +43,43 @@ body {
   margin: 0px;
   border-radius: 50px;
   background-color: transparent;
-  border:10px solid black;
+  border:10px solid white;
   display: none;
   position: absolute;
 }
 
-
-
-/*
-.App {
-  text-align: center;
+.sideWindow {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: hidden;
+  transition: 0s;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sideWindow p {
+  padding: 8px 8px 8px 32px;
+  font-size: 15px;
   color: white;
+  opacity: 1;
+  display: block;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.sideWindow #closeButton {
+  background: none;
+  border:none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  font-size: 36px;
+  text-align: center;
+  z-index: 2;
 }
-*/
