@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -11,6 +11,7 @@ import Audience from './pages/audience/index';
 import Player from './components/player';
 import AvatarStage from './components/avatarStage';
 import Login from './login';
+import instance from '../axiosFactory';
 
 const App = () => {
     const [ token, setToken ] = React.useState();
@@ -25,6 +26,14 @@ const App = () => {
             />
         )
     }
+
+    useEffect(() => {
+        console.log('initial');
+        (async () => {
+            const response = await instance.get('/test');
+            console.log(response.data);
+        })();
+    }, []);
 
     return(
         <Router>
