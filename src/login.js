@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './login.css';
 
-async function loginUser(credentials) {
-  // 13.209.255.184
-  // 172.31.19.57
- return fetch('http://13.209.255.184:50002/login', {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json'
-   },
-   body: JSON.stringify(credentials)
- })
-   .then(data => data.json())
-}
+// async function loginUser(credentials) {
+//   // 13.209.255.184
+//   // 172.31.19.57
+// http://13.209.255.184:50002/login
+//  return fetch("http://localhost:8080/login", {
+//    method: 'POST',
+//    headers: {
+//      'Content-Type': 'application/json'
+//    },
+//    body: JSON.stringify(credentials)
+//  })
+//    .then(data => data.json())
+// }
 
 // const proxy = require("http-proxy-middleware");
 // module.exports = function (app) {
@@ -33,19 +34,19 @@ export default function Login({ setToken, setAudience}) {
   // const [password, setPassword] = useState();
   const handleSubmitPerformer = async e => {
     e.preventDefault();
-    const token = await loginUser({
-      username
-    });
-    setToken(token);
+    // const token = await loginUser({
+    //   username
+    // });
+    setToken(1);
     setAudience(false);
   }
 
   const handleSubmitAudience = async e => {
     e.preventDefault();
-    const token = await loginUser({
-      username
-    });
-    setToken(token);
+    // const token = await loginUser({
+    //   username
+    // });
+    setToken(1);
     setAudience(true);
   }
 
