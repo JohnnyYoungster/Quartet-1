@@ -36,7 +36,7 @@ export default function Login({ setToken, setAudience}) {
     const token = await loginUser({
       username
     });
-    setToken(1);
+    setToken(token);
     setAudience(false);
   }
 
@@ -45,7 +45,7 @@ export default function Login({ setToken, setAudience}) {
     const token = await loginUser({
       username
     });
-    setToken(1);
+    setToken(token);
     setAudience(true);
   }
 
