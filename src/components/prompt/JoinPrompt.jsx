@@ -1,6 +1,6 @@
 import "./joinprompt.css"
 import JumpPrompt from "../../image/jumpPrompt.png"
-
+import { react } from 'react.eval'
 import React from "react";
 
 import Button from "antd/lib/button";
@@ -11,7 +11,9 @@ export default function JoinPrompt(){
   
   
   const join =(event)=>{
-    //react('glowstick.onClick')
+    react('vanish.onClick')
+    react('aferjoin.onClick')
+    react('ava.onClick')
     //window.location.href="https://google.com"
 }
   

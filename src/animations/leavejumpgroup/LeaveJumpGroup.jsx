@@ -1,10 +1,10 @@
 import "./leavejumpgroup.css"
 import React from "react"
 import Animate from 'rc-animate';
-import JoinPrompt from "../../components/prompt/JoinPrompt";
+import LeavePrompt from "../../components/prompt/LeavePrompt";
 
 
-export default class JoinJumpGroup extends React.Component{
+export default class LeaveJumpGroup extends React.Component{
 
     constructor() {
       super(...arguments);
@@ -26,14 +26,14 @@ export default class JoinJumpGroup extends React.Component{
     render(){
       return (
         <>
-            <div className="Label" onClick={this.onClick}> #Jumping group</div>
+            <div className="Labell" onClick={this.onClick}> #clickToLeave</div>
 
             <Animate
                 transitionName="fade"
                 transitionAppear
                 >
                 {this.state.show ?
-                <JoinPrompt /> : null}
+                <LeavePrompt /> : null}
                 </Animate>
         </>
 

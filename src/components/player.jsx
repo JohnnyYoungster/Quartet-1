@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useMemo, useEffect } from 'react';
 import styled from 'styled-components';
-import mp3_file from './resources/sample.mp3';
-import audio_file1 from './resources/megalovania_bass.mp3'
-import audio_file2 from './resources/megalovania_melody.mp3'
-import audio_file3 from './resources/megalovania_drums.mp3'
+//import mp3_file from './resources/sample.mp3';
+//import audio_file1 from './resources/megalovania_bass.mp3'
+//import audio_file2 from './resources/megalovania_melody.mp3'
+//import audio_file3 from './resources/megalovania_drums.mp3'
 import audio_file_combined from './resources/megalovania_combined.mp3'
 // import movie_left from './resources/megalovania_left.mp4'
 // import movie_center from './resources/megalovania_center.mp4'

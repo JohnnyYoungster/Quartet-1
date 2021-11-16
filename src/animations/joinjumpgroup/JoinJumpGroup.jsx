@@ -26,7 +26,7 @@ export default class JoinJumpGroup extends React.Component{
     render(){
       return (
         <>
-            <div className="Label" onClick={this.onClick}> #Jumping group</div>
+            <div className="Label" onClick={this.onClick}> #clickToJoin</div>
 
             <Animate
                 transitionName="fade"
