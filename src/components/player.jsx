@@ -19,24 +19,25 @@ const resources = [
 	"https://streamable.com/lb2qtx",
 	"https://streamable.com/2s91p6",
 	"https://streamable.com/qhr92h"
-  ];
+];
 // const resources=[
 // 	movie_left,movie_center,movie_right
 // ]
 
-const Player = ({isAudience}) => {
-	const [isPlaying, setPlaying] = useState(false);
+const Player = ({ isAudience }) => {
+	const [ isPlaying, setPlaying ] = useState(false);
+	const [ readyCount, setReadyCount ] = useState(0);
 	const audio_combined = useMemo(() => new Audio(audio_file_combined), []);
-	const [readyCount, setReadyCount] = useState(0);
-	  const onReady = useCallback(() => {
+
+	const onReady = useCallback(() => {
 		setReadyCount(readyCount + 1);
-	  },[]);
-	
-	  useEffect(() => {
-		if (readyCount === resources.length) {
-		  setPlaying(true);
-		}
-	  }, [readyCount]);
+	},[]);
+
+	useEffect(() => {
+	if (readyCount === resources.length) {
+		setPlaying(true);
+	}
+	}, [ readyCount ]);
 
 	useEffect(() => {
 		if (isPlaying) {
@@ -44,36 +45,34 @@ const Player = ({isAudience}) => {
 		} else {
 			audio_combined.pause();
 		}
-	}, [ isPlaying, audio_combined]);
-	
-	const play= useCallback(()=>{setPlaying(true)},[]);
-	const pause= useCallback(()=>{setPlaying(false)},[]);
+	}, [ isPlaying, audio_combined ]);
 
-	if(isAudience){
+	const play = useCallback(() => setPlaying(true), []);
+	const pause = useCallback(() => setPlaying(false), []);
+
     return (
         <Layout>
-		 <div>Player</div>
-		 <div className='player-wrapper'>
-			{resources.map((url) => (
-        <ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
-		/>
-      ))}</div>
+			<div>Player</div>
+			{ isAudience &&
+				<React.Fragment>
+					<button onClick={play}>Play</button>
+					<button onClick={pause}>Pause</button>
+				</React.Fragment>
+			}
+			<div className='player-wrapper'>
+				{ resources.map((url, i) => (
+					<ReactPlayer
+						key={i}
+						playing={isPlaying}
+						onReady={onReady}
+						url={url}
+						volume={0}
+						controls={false}
+					/>
+				))}
+			</div>
         </Layout>
-    );}
-	else{
-		return (
-			<Layout>
-			 <div>Player</div>
-			 <button onClick={play}>Play</button> 
-			 <button onClick={pause}>Pause</button>
-			 <div className='player-wrapper'>
-				{resources.map((url) => (
-			<ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
-			/>
-		  ))}</div>
-			</Layout>
-		);
-	}
+    )
 };
 
 export default Player;

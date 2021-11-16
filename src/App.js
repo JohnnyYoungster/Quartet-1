@@ -11,34 +11,27 @@ import Audience from './pages/audience/index';
 import Player from './components/player';
 import AvatarStage from './components/avatarStage';
 import Login from './login';
+
 const App = () => {
-    const [token, setToken] = React.useState();
-    const [isAudience, setAudience]=React.useState();
-    if(!token) {
-        return <Login setToken={setToken} setAudience={setAudience} />
+    const [ token, setToken ] = React.useState();
+    const [ isAudience, setAudience ] = React.useState();
+
+    if (!token) {
+        return (
+            <Login
+                setToken={setToken}
+                setAudience={setAudience}
+            />
+        )
     }
-    if(isAudience){
-        return(
+
+    return(
         <Router>
-            <div>
             <Player isAudience={isAudience}/>
             <AvatarStage/>
-            <Audience/>
-            </div>
+            { isAudience ? <Audience /> : <Performer /> }
         </Router>
-        );
-    }
-    else{
-        return(
-            <Router>
-                <div>
-                <Player isAudience={isAudience}/>
-                <AvatarStage/>
-                <Performer/>
-                </div>
-            </Router>
-            );
-    }
+    );
 };
 
 export default App;
