@@ -28,7 +28,7 @@ const App = () => {
     return(
         <Router>
             <Player isAudience={isAudience}/>
-            <AvatarStage/>
+            <AvatarStage isAudience={isAudience}/>
             { isAudience ? <Audience /> : <Performer /> }
         </Router>
     );

@@ -1,0 +1,18 @@
+.announceBar{
+    /* Rectangle 44 */
+
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    left: 0px;
+    top: 95%;
+    display: flex;
+    background: #F1EBFF;
+    /* align-items: center; */
+}
+.textInput{
+    margin-right: 75%;
+}
+/* .megaphone{
+    margin-left: 50%;
+} */

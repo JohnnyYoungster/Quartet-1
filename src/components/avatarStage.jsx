@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import BottomBar from './bottombar/BottomBar';
 //import userAvatar from "../image/userAvatar.png"
@@ -10,6 +10,7 @@ import Avatars from '../animations/avatars/Avatars';
 //import IndividualJump from '../animations/individualjump/IndividualJump';
 import AfterJoin from '../animations/afterjoin/AfterJoin';
 import UserAvatarVanish from '../animations/useravatarvanish/UserAvatarVanish';
+import AnnounceBar from './bottombar/AnnounceBar';
 
 
 
@@ -19,7 +20,8 @@ height: 200px;
 background-color: skyblue;
 `;
 
-const AvatarStage = () => {
+const AvatarStage = ({ isAudience }) => {
+    const [announce, setAnnounce] = useState();
     return (
         <>
         <Layout>
@@ -39,8 +41,7 @@ const AvatarStage = () => {
             
             </Draggable>
             */}
-            
-            <AfterJoin id='aferjoin'/>
+            { isAudience &&<AfterJoin id='aferjoin'/> }
             {/*<IndividualJump id='indiJump' />*/}
 
             <UserAvatarVanish id='vanish'/>
@@ -50,7 +51,8 @@ const AvatarStage = () => {
         
         {/*<JoinJumpGroup></JoinJumpGroup>*/}
         
-        <BottomBar></BottomBar>
+        {isAudience&&<BottomBar></BottomBar>}
+        {!isAudience&&<AnnounceBar setAnnounce={setAnnounce}></AnnounceBar>}
         </>
     );
 };
