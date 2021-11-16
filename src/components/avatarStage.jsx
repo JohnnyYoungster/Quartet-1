@@ -20,29 +20,16 @@ const AvatarStage = () => {
     return (
         <>
         <Layout>
-            
             <Draggable>
-                
-                
                 <div className= "userBlock">
-                <ShowHeart id='heart' className="showHeart"/>
-                <ShowGlowStick id='glowstick'/>
-                <img className="User" src={userAvatar} alt="userAvatar"/>
-                       
-            
+                    <ShowHeart id='heart' className="showHeart"/>
+                    <ShowGlowStick id='glowstick'/>
+                    <img className="User" src={userAvatar} alt="userAvatar"/>
                 </div>
-                
-               
-            
             </Draggable>
-          
-
-            <Avatars></Avatars>
+            <Avatars />
         </Layout>
-        
-        
         {/*<JoinJumpGroup></JoinJumpGroup>*/}
-        
         <BottomBar></BottomBar>
         </>
     );

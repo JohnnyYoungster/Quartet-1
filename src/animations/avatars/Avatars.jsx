@@ -63,8 +63,8 @@ export default class Avatars extends React.Component {
 
             <JoinJumpGroup></JoinJumpGroup>
         </TweenOne> */}
-        
-        
+
+
         <TweenOne
           animation={[
             {
@@ -94,10 +94,10 @@ export default class Avatars extends React.Component {
           >
             <img className="avatar1" src={avatar1} alt="avatar1" />
         </TweenOne>
-        
+
         <TweenOne
           animation={[
-            { 
+            {
               delay:100,
               repeatDelay: 200,
               y: -70,
@@ -125,10 +125,10 @@ export default class Avatars extends React.Component {
           >
             <img className="avatar2" src={avatar2} alt="avatar2" />
         </TweenOne>
-        
+
         <TweenOne
           animation={[
-            { 
+            {
               delay:200,
               repeatDelay: 200,
               y: -70,
@@ -156,11 +156,11 @@ export default class Avatars extends React.Component {
           >
             <img className="avatar3" src={avatar1} alt="avatar1" />
         </TweenOne>
-          
+
 
         <TweenOne
           animation={[
-            { 
+            {
               delay:300,
               repeatDelay: 200,
               y: -70,
@@ -191,7 +191,7 @@ export default class Avatars extends React.Component {
 
         <TweenOne
           animation={[
-            { 
+            {
               delay:400,
               repeatDelay: 200,
               y: -70,
@@ -222,7 +222,7 @@ export default class Avatars extends React.Component {
 
         <TweenOne
           animation={[
-            { 
+            {
               delay:500,
               repeatDelay: 200,
               y: -70,
@@ -250,11 +250,11 @@ export default class Avatars extends React.Component {
           >
             <img className="avatar6" src={avatar2} alt="avatar2" />
         </TweenOne>
-        
+
 
         <TweenOne
           animation={[
-            { 
+            {
               delay:600,
               repeatDelay: 200,
               y: -70,
@@ -286,7 +286,7 @@ export default class Avatars extends React.Component {
 
         <TweenOne
           animation={[
-            { 
+            {
               delay:700,
               repeatDelay: 200,
               y: -70,
@@ -315,18 +315,13 @@ export default class Avatars extends React.Component {
             <img className="avatar8" src={avatar2} alt="avatar2" />
         </TweenOne>
         <JoinJumpGroup></JoinJumpGroup>
-
-        
-
-
         <div className="minigamecrowd">
-        <img className="avatar9" src={avatar1} alt="avatar2" />
-        <img className="avatar10" src={avatar2} alt="userAvatar" />
-        <img className="avatar11" src={avatar2} alt="avatar2" />
-        <img className="avatar12" src={avatar1} alt="userAvatar" />
-        <img className="avatar13" src={avatar2} alt="avatar2" />
+          <img className="avatar9" src={avatar1} alt="avatar2" />
+          <img className="avatar10" src={avatar2} alt="userAvatar" />
+          <img className="avatar11" src={avatar2} alt="avatar2" />
+          <img className="avatar12" src={avatar1} alt="userAvatar" />
+          <img className="avatar13" src={avatar2} alt="avatar2" />
         </div>
-
       </div>
     );
   }

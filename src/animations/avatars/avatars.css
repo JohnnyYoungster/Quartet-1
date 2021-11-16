@@ -1,21 +1,12 @@
 .jumpcrowd{
-    position: absolute;
-    height: 8%;
-    width: 15%;
     display: flex;
-    top: 80%;
-    left: 3%;
-    /*background-color: chartreuse;*/
+    justify-content: space-between;
 }
 
 
 
 .minigamecrowd{
-    position: absolute;
-    left: 1100px;
-    height: 100%;
-    display: flex;
-    top: 0%;
+
 }
 
 
@@ -49,20 +40,30 @@
 }
 
 .avatar9{
-    margin-left: 3%;
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
 }
 
 .avatar10{
-    margin-left: 5%;
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
 }
 .avatar11{
-    margin-left: 8%;
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
 }
 .avatar12{
-    margin-left: 5%;
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
 }
 .avatar13{
-    margin-left: 3%;
+    margin-left: 10px;
+    width: 50px;
+    height: 60px;
 }
 
 
