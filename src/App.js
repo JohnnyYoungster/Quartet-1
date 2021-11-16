@@ -11,7 +11,7 @@ import Audience from './pages/audience/index';
 import Player from './components/player';
 import AvatarStage from './components/avatarStage';
 import Login from './login';
-import instance from '../axiosFactory';
+import instance from './axiosFactory';
 
 const App = () => {
     const [ token, setToken ] = React.useState();
