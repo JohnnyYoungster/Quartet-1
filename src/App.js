@@ -15,6 +15,7 @@ import Login from './login';
 const App = () => {
     const [ token, setToken ] = React.useState();
     const [ isAudience, setAudience ] = React.useState();
+    const [ broadcast, setBroadcast]=React.useState();
 
     if (!token) {
         return (
@@ -27,8 +28,8 @@ const App = () => {
 
     return(
         <Router>
-            <Player isAudience={isAudience}/>
-            <AvatarStage isAudience={isAudience}/>
+            <Player isAudience={isAudience} msg={broadcast} setMsg={setBroadcast}/>
+            <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}/>
             { isAudience ? <Audience /> : <Performer /> }
         </Router>
     );

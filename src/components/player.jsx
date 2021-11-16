@@ -9,6 +9,7 @@ import audio_file_combined from './resources/megalovania_combined.mp3'
 // import movie_center from './resources/megalovania_center.mp4'
 // import movie_right from './resources/megalovania_right.mp4'
 import ReactPlayer from 'react-player'
+import Animate from 'rc-animate';
 import "./player.css"
 
 const Layout = styled.div`
@@ -24,14 +25,25 @@ const resources = [
 // 	movie_left,movie_center,movie_right
 // ]
 
-const Player = ({ isAudience }) => {
+const Player = ({ isAudience, msg, setMsg}) => {
 	const [ isPlaying, setPlaying ] = useState(false);
 	const [ readyCount, setReadyCount ] = useState(0);
+	const [showmsg, setShowmsg]=useState(false);
 	const audio_combined = useMemo(() => new Audio(audio_file_combined), []);
 
 	const onReady = useCallback(() => {
 		setReadyCount(readyCount + 1);
 	},[]);
+
+	useEffect(()=>{
+		setShowmsg(true);
+		if(msg!=""){
+		setTimeout(() => {
+		setShowmsg(false);
+		setMsg("");
+		},1000);
+		}
+	},[msg]);
 
 	useEffect(() => {
 	if (readyCount === resources.length) {
@@ -71,6 +83,8 @@ const Player = ({ isAudience }) => {
 					/>
 				))}
 			</div>
+			{showmsg && <div className="broadcast">{msg}</div>}
+			
         </Layout>
     )
 };

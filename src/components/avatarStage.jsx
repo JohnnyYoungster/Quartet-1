@@ -20,8 +20,8 @@ height: 200px;
 background-color: skyblue;
 `;
 
-const AvatarStage = ({ isAudience }) => {
-    const [announce, setAnnounce] = useState();
+const AvatarStage = ({ isAudience, setBroadcast}) => {
+    // const [announce, setAnnounce] = useState();
     return (
         <>
         <Layout>
@@ -52,7 +52,7 @@ const AvatarStage = ({ isAudience }) => {
         {/*<JoinJumpGroup></JoinJumpGroup>*/}
         
         {isAudience&&<BottomBar></BottomBar>}
-        {!isAudience&&<AnnounceBar setAnnounce={setAnnounce}></AnnounceBar>}
+        {!isAudience&&<AnnounceBar setAnnounce={setBroadcast}></AnnounceBar>}
         </>
     );
 };
