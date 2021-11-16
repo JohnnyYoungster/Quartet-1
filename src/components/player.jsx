@@ -23,13 +23,9 @@ const resources = [
 // const resources=[
 // 	movie_left,movie_center,movie_right
 // ]
-const Player = () => {
-	// const [isPlayingVideo, setPlayingVideo] = useState(false);
-	// const [isPlayingMusic, setPlayingMusic] = useState(false);
+
+const Player = ({isAudience}) => {
 	const [isPlaying, setPlaying] = useState(false);
-	// const audio_bass = useMemo(() => new Audio(audio_file1), []);
-	// const audio_melody = useMemo(() => new Audio(audio_file2), []);
-	// const audio_drums = useMemo(() => new Audio(audio_file3), []);
 	const audio_combined = useMemo(() => new Audio(audio_file_combined), []);
 	const [readyCount, setReadyCount] = useState(0);
 	  const onReady = useCallback(() => {
@@ -53,21 +49,31 @@ const Player = () => {
 	const play= useCallback(()=>{setPlaying(true)},[]);
 	const pause= useCallback(()=>{setPlaying(false)},[]);
 
+	if(isAudience){
     return (
         <Layout>
-			
-			<div>Player</div>
-			<button onClick={play}>Play</button> 
-         <button onClick={pause}>Pause</button>
+		 <div>Player</div>
 		 <div className='player-wrapper'>
 			{resources.map((url) => (
         <ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
-		// width="300px"
-		// height="300px"
 		/>
       ))}</div>
         </Layout>
-    );
+    );}
+	else{
+		return (
+			<Layout>
+			 <div>Player</div>
+			 <button onClick={play}>Play</button> 
+			 <button onClick={pause}>Pause</button>
+			 <div className='player-wrapper'>
+				{resources.map((url) => (
+			<ReactPlayer key={url} playing={isPlaying} onReady={onReady} url={url} volume={0} controls={false}
+			/>
+		  ))}</div>
+			</Layout>
+		);
+	}
 };
 
 export default Player;
