@@ -25,9 +25,7 @@ const resources = [
 // 	movie_left,movie_center,movie_right
 // ]
 
-const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer
-	, setAction, partnerState
-}) => {
+const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 	const [ isPlaying, setPlaying ] = useState(false);
 	const [ readyCount, setReadyCount ] = useState(0);
 	const [showmsg, setShowmsg]=useState(false);
