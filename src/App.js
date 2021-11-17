@@ -13,6 +13,15 @@ import AvatarStage from './components/avatarStage';
 import Login from './login';
 import instance from './axiosFactory.js';
 
+const actions = {
+	NOTHING: 0,
+	HEART: 1,
+	JUMP: 2,
+	GLOW: 3,
+    CLAP: 4,
+    GROUPJUMP: 5
+}
+
 const App = () => {
     const [ token, setToken ] = React.useState();
     const [ isAudience, setAudience ] = React.useState(true);
@@ -31,7 +40,7 @@ const App = () => {
     useEffect(() => {
         console.log('playing music');
         (async () => {
-            const response = await instance.post('/play',{
+            const response = await instance.get('/play',{
                 isAudience: isAudience,
                 isPlaying: playing
             });
@@ -43,12 +52,22 @@ const App = () => {
     useEffect(() => {
         ( () => {
             setInterval(async ()=>
-            {const response = await instance.post('/update');
+            {const response = await instance.get('/update');
             console.log(response.data);
             setPlaying(response.data.isPlaying);
-        },3000);
+        },10000);
         })();
     }, []);
+
+    // Autoplay music in case of no server integration
+
+    // useEffect(() => {
+    //     ( () => {
+    //         setInterval(()=>
+    //         setPlaying(true)
+    //     ,5000);
+    //     })();
+    // }, []);
 
     if (!token) {
         return (
