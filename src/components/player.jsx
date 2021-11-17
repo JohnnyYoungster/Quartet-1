@@ -48,8 +48,8 @@ const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 	},[msg]);
 
 	useEffect(()=>{
-		if(playedFromServer && isAudience){
-			setPlaying(true);
+		if(isAudience){
+			setPlaying(playedFromServer);
 		}
 	},[playedFromServer])
 
@@ -78,7 +78,7 @@ const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 			{ !isAudience &&
 				<React.Fragment>
 					<button onClick={play}>Play</button>
-					<button onClick={pause}>Pause</button>
+					{/* <button onClick={pause}>Pause</button> */}
 				</React.Fragment>
 			}
 			<div className='player-wrapper'>

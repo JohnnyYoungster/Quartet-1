@@ -25,25 +25,27 @@ const actions = {
 const App = () => {
     const [ token, setToken ] = React.useState();
     const [ isAudience, setAudience ] = React.useState(true);
-    const [ broadcast, setBroadcast]=React.useState();
+    const [ broadcast, setBroadcast]=React.useState("");
     const [ playing, setPlaying]=React.useState(false);
 
     useEffect(() => {
-        console.log('initial');
+        // console.log('initial');
         (async () => {
             const response = await instance.get('/test');
-            console.log(response.data);
+            // console.log(response.data);
         })();
     }, []);
 
     // Send server that music should be playing
     useEffect(() => {
         (async () => {
+            if(!isAudience){
             const response = await instance.get('/play',{params:{
                 isAudience: isAudience,
                 isPlaying: playing
             }});
-            console.log(response.data);
+        }
+            // console.log(response.data);
         })();
     }, [playing]);
     
@@ -54,7 +56,7 @@ const App = () => {
                 isAudience: isAudience,
                 broadcast: broadcast
             }});
-            console.log(response.data);
+            console.log(response.data.broadcast);
         })();
     }, [broadcast]);
     
@@ -63,9 +65,9 @@ const App = () => {
         ( () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
-            console.log(response.data.isPlaying);
-            setPlaying(response.data.isPlaying);
+            // console.log(response.data.isPlaying);
             if(isAudience){
+                setPlaying(response.data.isPlaying);
                 setBroadcast(response.data.broadcast);
             }
         },10000);
