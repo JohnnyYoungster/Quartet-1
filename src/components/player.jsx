@@ -25,7 +25,7 @@ const resources = [
 // 	movie_left,movie_center,movie_right
 // ]
 
-const Player = ({ isAudience, msg, setMsg}) => {
+const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 	const [ isPlaying, setPlaying ] = useState(false);
 	const [ readyCount, setReadyCount ] = useState(0);
 	const [showmsg, setShowmsg]=useState(false);
@@ -45,6 +45,12 @@ const Player = ({ isAudience, msg, setMsg}) => {
 		}
 	},[msg]);
 
+	useEffect(()=>{
+		if(playedFromServer && isAudience){
+			setPlaying(true);
+		}
+	},[playedFromServer])
+
 	useEffect(() => {
 	if (readyCount === resources.length) {
 		setPlaying(true);
@@ -54,8 +60,10 @@ const Player = ({ isAudience, msg, setMsg}) => {
 	useEffect(() => {
 		if (isPlaying) {
 			audio_combined.play();
+			sendServerPlay(true);
 		} else {
 			audio_combined.pause();
+			sendServerPlay(false);
 		}
 	}, [ isPlaying, audio_combined ]);
 
@@ -65,7 +73,7 @@ const Player = ({ isAudience, msg, setMsg}) => {
     return (
         <Layout>
 			<div>Player</div>
-			{ isAudience &&
+			{ !isAudience &&
 				<React.Fragment>
 					<button onClick={play}>Play</button>
 					<button onClick={pause}>Pause</button>

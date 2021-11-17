@@ -15,14 +15,38 @@ import instance from './axiosFactory.js';
 
 const App = () => {
     const [ token, setToken ] = React.useState();
-    const [ isAudience, setAudience ] = React.useState();
+    const [ isAudience, setAudience ] = React.useState(true);
     const [ broadcast, setBroadcast]=React.useState();
+    const [ playing, setPlaying]=React.useState(false);
 
     useEffect(() => {
         console.log('initial');
         (async () => {
             const response = await instance.get('/test');
             console.log(response.data);
+        })();
+    }, []);
+
+    // Send server that music should be playing
+    useEffect(() => {
+        console.log('playing music');
+        (async () => {
+            const response = await instance.post('/play',{
+                isAudience: isAudience,
+                isPlaying: playing
+            });
+            console.log(response.data);
+        })();
+    }, [playing]);
+    
+    // Update OtherPlayerDataList every 3 seconds
+    useEffect(() => {
+        ( () => {
+            setInterval(async ()=>
+            {const response = await instance.post('/update');
+            console.log(response.data);
+            setPlaying(response.data.isPlaying);
+        },3000);
         })();
     }, []);
 
@@ -37,7 +61,10 @@ const App = () => {
 
     return(
         <Router>
-            <Player isAudience={isAudience} msg={broadcast} setMsg={setBroadcast}/>
+            <Player 
+                isAudience={isAudience} 
+                msg={broadcast} setMsg={setBroadcast} 
+                sendServerPlay={setPlaying} playedFromServer={playing}/>
             <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}/>
             { isAudience ? <Audience /> : <Performer /> }
         </Router>
