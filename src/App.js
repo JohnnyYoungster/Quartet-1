@@ -38,26 +38,28 @@ const App = () => {
 
     // Send server that music should be playing
     useEffect(() => {
+        if(!isAudience){
         (async () => {
-            if(!isAudience){
             const response = await instance.get('/play',{params:{
                 isAudience: isAudience,
                 isPlaying: playing
             }});
         }
             // console.log(response.data);
-        })();
+        )();}
     }, [playing]);
     
     // Send server broadcastMessage
     useEffect(() => {
-        (async () => {
-            const response = await instance.get('/broadcast',{params:{
-                isAudience: isAudience,
-                broadcast: broadcast
-            }});
-            console.log(response.data.broadcast);
-        })();
+        if(!isAudience){
+            (async () => {
+                const response = await instance.get('/broadcast',{params:{
+                    isAudience: isAudience,
+                    broadcast: broadcast
+                }});
+                console.log(response.data.broadcast);
+            })();
+        }
     }, [broadcast]);
     
     // Update OtherPlayerDataList every 3 seconds
@@ -75,14 +77,6 @@ const App = () => {
     }, []);
 
     // Autoplay music in case of no server integration
-
-    // useEffect(() => {
-    //     ( () => {
-    //         setInterval(()=>
-    //         setPlaying(true)
-    //     ,5000);
-    //     })();
-    // }, []);
 
     if (!token) {
         return (
