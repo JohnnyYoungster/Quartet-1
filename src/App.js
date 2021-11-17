@@ -68,9 +68,9 @@ const App = () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
             // console.log(response.data.isPlaying);
-            if(isAudience && response.data.broadcast!=""){
+            if(isAudience ){
                 setPlaying(response.data.isPlaying);
-                setBroadcast(response.data.broadcast);
+                if(response.data.broadcast!=""){setBroadcast(response.data.broadcast);}
             }
         },3000);
         })();
@@ -91,7 +91,7 @@ const App = () => {
         <Router>
             <Player 
                 isAudience={isAudience} 
-                msg={broadcast} setMsg={setBroadcast} 
+                msg={broadcast} 
                 sendServerPlay={setPlaying} playedFromServer={playing}/>
             <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}/>
             { isAudience ? <Audience /> : <Performer /> }
