@@ -40,11 +40,9 @@ const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 		if(msg!=""){
 		setTimeout(() => {
 		setShowmsg(false);
-		if(!isAudience){
-			setMsg("");
-		}
+		// setMsg("");
 		},1000);
-		}
+	}
 	},[msg]);
 
 	useEffect(()=>{

@@ -68,7 +68,7 @@ const App = () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
             // console.log(response.data.isPlaying);
-            if(isAudience){
+            if(isAudience && response.data.broadcast!=""){
                 setPlaying(response.data.isPlaying);
                 setBroadcast(response.data.broadcast);
             }
