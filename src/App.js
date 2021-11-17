@@ -38,23 +38,36 @@ const App = () => {
 
     // Send server that music should be playing
     useEffect(() => {
-        console.log('playing music');
         (async () => {
-            const response = await instance.get('/play',{
+            const response = await instance.get('/play',{params:{
                 isAudience: isAudience,
                 isPlaying: playing
-            });
+            }});
             console.log(response.data);
         })();
     }, [playing]);
+    
+    // Send server broadcastMessage
+    useEffect(() => {
+        (async () => {
+            const response = await instance.get('/broadcast',{params:{
+                isAudience: isAudience,
+                broadcast: broadcast
+            }});
+            console.log(response.data);
+        })();
+    }, [broadcast]);
     
     // Update OtherPlayerDataList every 3 seconds
     useEffect(() => {
         ( () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
-            console.log(response.data);
+            console.log(response.data.isPlaying);
             setPlaying(response.data.isPlaying);
+            if(isAudience){
+                setBroadcast(response.data.broadcast);
+            }
         },10000);
         })();
     }, []);

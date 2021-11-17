@@ -40,7 +40,9 @@ const Player = ({isAudience, msg, setMsg,sendServerPlay, playedFromServer}) => {
 		if(msg!=""){
 		setTimeout(() => {
 		setShowmsg(false);
-		setMsg("");
+		if(!isAudience){
+			setMsg("");
+		}
 		},1000);
 		}
 	},[msg]);
