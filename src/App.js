@@ -70,7 +70,7 @@ const App = () => {
                 setPlaying(response.data.isPlaying);
                 setBroadcast(response.data.broadcast);
             }
-        },10000);
+        },3000);
         })();
     }, []);
 
