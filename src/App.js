@@ -15,11 +15,11 @@ import instance from './axiosFactory.js';
 
 const actions = {
 	NOTHING: 0,
-	HEART: 1,
-	JUMP: 2,
-	GLOW: 3,
-    CLAP: 4,
-    GROUPJUMP: 5
+    CLAP: 1,
+    GROUPJUMP: 2
+    // HEART: 3,
+	// JUMP: 4,
+	// GLOW: 5,
 }
 
 const App = () => {
@@ -28,11 +28,13 @@ const App = () => {
     const [ broadcast, setBroadcast]=React.useState("");
     const [ playing, setPlaying]=React.useState(false);
 
+    
+    const [ actionState, setAction]=React.useState(actions.NOTHING);
+    const [ partnerState, setPartnerAction]=React.useState(actions.NOTHING);
+
     useEffect(() => {
-        // console.log('initial');
         (async () => {
             const response = await instance.get('/test');
-            // console.log(response.data);
         })();
     }, []);
 
@@ -45,7 +47,6 @@ const App = () => {
                 isPlaying: playing
             }});
         }
-            // console.log(response.data);
         )();}
     }, [playing]);
     
@@ -67,7 +68,6 @@ const App = () => {
         ( () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
-            // console.log(response.data.isPlaying);
             if(isAudience && response.data.broadcast!=""){
                 setPlaying(response.data.isPlaying);
                 setBroadcast(response.data.broadcast);
@@ -76,7 +76,7 @@ const App = () => {
         })();
     }, []);
 
-    // Autoplay music in case of no server integration
+    // Send 
 
     if (!token) {
         return (
@@ -92,9 +92,12 @@ const App = () => {
             <Player 
                 isAudience={isAudience} 
                 msg={broadcast} setMsg={setBroadcast} 
-                sendServerPlay={setPlaying} playedFromServer={playing}/>
-            <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}/>
-            { isAudience ? <Audience /> : <Performer /> }
+                sendServerPlay={setPlaying} playedFromServer={playing}
+                setAction={setAction} partnerState={partnerState}
+                />
+            <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast} partnerState={actions.NOTHING}
+            />
+            { isAudience ? <Audience /> : <Performer setAction={setAction} partnerState={partnerState}/> }
         </Router>
     );
 };

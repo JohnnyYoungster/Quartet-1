@@ -54,7 +54,7 @@ function closeSideWindow() {
   document.getElementById("minigameWindow").style.width = "0px";
 }
 
-function Audience() {
+function Audience(setAction, partnerState) {
   return (
     <div className="App">
       <div id="minigameWindow" class="sideWindow">
