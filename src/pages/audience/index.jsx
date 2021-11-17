@@ -1,10 +1,11 @@
 import React from 'react';
 import './index.css';
 import clapImg from '../../image/clap.png';
+import clap from '../../components/resources/clap.mp3'
 
 var decreaseFlag;
 var score = 0;
-
+const clap_audio =new Audio(clap);
 function startDecrease() {  
   if (!decreaseFlag) {
     decreaseFlag = setInterval(decreaseBorder, 10)
@@ -55,6 +56,7 @@ function closeSideWindow() {
 }
 
 function Audience() {
+  // const clap_audio = React.useMemo(() => new Audio(clap), []);
   return (
     <div className="App">
       <div id="minigameWindow" class="sideWindow">
@@ -120,6 +122,7 @@ function initCloseButton() {
 function initButton() {
   document.getElementById("box").onclick = function()
   {
+    clap_audio.play();
     var targetBorder = document.getElementById("stack");
     var temp = parseInt(targetBorder.style.width, 10)
     if ((temp > 360) || (temp < 200)) {
