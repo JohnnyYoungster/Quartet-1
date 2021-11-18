@@ -16,8 +16,8 @@ import instance from './axiosFactory.js';
 const actions = {
 	NOTHING: 0,
 	HEART: 1,
-	JUMP: 2,
-	GLOW: 3,
+	GLOW: 2,
+	JUMP: 3,
     CLAP: 4,
     GROUPJUMP: 5
 }
