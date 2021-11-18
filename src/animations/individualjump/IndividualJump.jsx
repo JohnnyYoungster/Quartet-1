@@ -8,7 +8,7 @@ import userAvatar from "../../image/userAvatar.png"
 import ShowGlowStick from '../../animations/glowstickanimation/GlowStickAnimation';
 import ShowHeart from '../../animations/heartanimation/HeartAnimation';
 import Draggable from "react-draggable"
-
+import UserAva from "./userava";
 
 
 const p0 = 'M0,100 L25,100 C34,20 40,0 100,0';
@@ -37,7 +37,7 @@ export default class IndividualJump extends React.Component{
         show: !this.state.show,
       })
         
-      }, 4800);
+      }, 4400);
       
     }
 
@@ -48,6 +48,8 @@ export default class IndividualJump extends React.Component{
         <>
             <div  onClick={this.onClick}/>
 
+            <Draggable>
+            <div>
             <Animate
                 transitionName="fade"
                 transitionAppear
@@ -84,24 +86,26 @@ export default class IndividualJump extends React.Component{
                 >
                   <img  src={userAvatar} alt="userAvatar" />
                 </TweenOne>
+                    
                   
                   
                   
-                  
-                  :
-                    <Draggable>
+                  : null
+                    /*<Draggable>
                     <div className= "userBlock">
                     <ShowHeart id='heart' className="showHeart"/>
                     <ShowGlowStick id='glowstick'/>
                     <img className="User" src={userAvatar} alt="userAvatar"/>
                     </div>
                     </Draggable>
-                 
+                 */
               }
                 
                 
                 </Animate>
-
+                <UserAva id='jumpfinish'/>
+                </div>
+                </Draggable>
                 
 
         </>

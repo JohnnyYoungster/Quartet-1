@@ -19,6 +19,7 @@ export default function BottomBar() {
 
     const jumpClick =(event)=>{
       react('indiJump.onClick')
+      react('jumpfinish.onClick')
     }
 
 
