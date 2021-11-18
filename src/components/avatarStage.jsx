@@ -13,6 +13,7 @@ import UserAvatarVanish from '../animations/useravatarvanish/UserAvatarVanish';
 import AnnounceBar from './bottombar/AnnounceBar';
 import NPC from './npc/NPC';
 import Partner from './npc/Partner';
+import Partner2 from './npc/Partner2';
 
 
 
@@ -45,9 +46,10 @@ const AvatarStage = ({ isAudience, setBroadcast}) => {
             { isAudience &&<AfterJoin id='aferjoin'/> }
             {/*<IndividualJump id='indiJump' />*/}
 
-            <UserAvatarVanish id='vanish'/>
+            {isAudience && <UserAvatarVanish id='vanish'/> }
             <Avatars id='ava'></Avatars>
-            <Partner action={0}/>
+            <Partner action={0} name={"Partner1"}/>
+            {!isAudience && <Partner2 action={0} name={"Partner2"}/>}
             <NPC/>
         </Layout>
         

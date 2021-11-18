@@ -1,10 +1,10 @@
-.partner{
+.partner2{
     position: absolute;
     display: flex;
     top: 0%;
     height: 7%;
     top: 79%;
-    left: 56%;
+    left: 40%;
 }
  
 
@@ -13,7 +13,7 @@
     margin-left: 3%;
 }
 
-.partnerHeart{
+.partnerHeart2{
     width: 75%;
     position: absolute;
     top: -100%;

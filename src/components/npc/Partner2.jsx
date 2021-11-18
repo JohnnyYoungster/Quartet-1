@@ -1,5 +1,5 @@
 import React from "react"
-import "./partner.css"
+import "./partner2.css"
 import avatar1 from '../../image/avatar1.png'
 import avatar2 from '../../image/avatar2.png';
 import heart from "../../image/heart.png"
@@ -15,19 +15,18 @@ const ease1 = TweenOne.easing.path(p1);
 
 
 
-const Partner=({action, name})=> {
+const Partner=({action,name})=> {
   // console.log(action)
         return (
           <>
-            <div className="partner">
+            <div className="partner2">
             { action <3 &&
             <img className="partnerNothing" src={userAvatar} alt="userAvatar"/>
             }
             
             { action==1 &&
-            <img className="partnerHeart" src={heart} alt="heart" />
+            <img className="partnerHeart2" src={heart} alt="heart" />
             }
-            
             { action==3 &&
             <TweenOne className="partnerJump"
              animation={[
