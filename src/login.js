@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import './login.css';
 
@@ -32,23 +32,15 @@ import './login.css';
 export default function Login({ setToken, setAudience}) {
   const [username, setUserName] = useState();
   // const [password, setPassword] = useState();
-  const handleSubmitPerformer = async e => {
-    e.preventDefault();
-    // const token = await loginUser({
-    //   username
-    // });
-    setToken(1);
+  const handleSubmitPerformer =  React.useCallback(() => {
+    setToken(username);
     setAudience(false);
-  }
+  });
 
-  const handleSubmitAudience = async e => {
-    e.preventDefault();
-    // const token = await loginUser({
-    //   username
-    // });
-    setToken(1);
+  const handleSubmitAudience  =  React.useCallback(() =>  {
+    setToken(username);
     setAudience(true);
-  }
+  });
 
   return(
     <div className="login-wrapper">

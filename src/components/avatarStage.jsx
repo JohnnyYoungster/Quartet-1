@@ -22,7 +22,7 @@ height: 200px;
 background-color: skyblue;
 `;
 
-const AvatarStage = ({ isAudience, setBroadcast}) => {
+const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name}) => {
     // const [announce, setAnnounce] = useState();
     return (
         <>
@@ -48,8 +48,8 @@ const AvatarStage = ({ isAudience, setBroadcast}) => {
 
             {isAudience && <UserAvatarVanish id='vanish'/> }
             <Avatars id='ava'></Avatars>
-            <Partner action={0} name={"Partner1"}/>
-            {!isAudience && <Partner2 action={0} name={"Partner2"}/>}
+            <Partner action={0} name={p2name}/> 
+            {!isAudience && <Partner2 action={0} name={p1name}/>}
             <NPC/>
         </Layout>
         
