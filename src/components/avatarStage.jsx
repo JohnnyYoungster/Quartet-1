@@ -23,7 +23,7 @@ background-color: skyblue;
 `;
 
 const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name,
-    setP1action
+    setUserAction
     ,p1action, p2action}) => {
     // const [announce, setAnnounce] = useState();
     return (
@@ -49,7 +49,9 @@ const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name,
             {/*<IndividualJump id='indiJump' />*/}
 
             {isAudience && <UserAvatarVanish id='vanish'/> }
-            <Avatars id='ava'></Avatars>
+            <Avatars id='ava' setUserAction={setUserAction} p2action={p2action}
+            p1action={p1action}
+            ></Avatars>
             <Partner action={p2action} name={p2name}/> 
             {!isAudience && <Partner2 action={p1action} name={p1name}/>}
             <NPC/>
@@ -58,7 +60,7 @@ const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name,
         
         {/*<JoinJumpGroup></JoinJumpGroup>*/}
         
-        {isAudience&&<BottomBar setP1action={setP1action}></BottomBar>}
+        {isAudience&&<BottomBar setUserAction={setUserAction}></BottomBar>}
         {!isAudience&&<AnnounceBar setAnnounce={setBroadcast}></AnnounceBar>}
         </>
     );

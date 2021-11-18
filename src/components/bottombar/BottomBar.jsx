@@ -8,7 +8,7 @@ import { react } from 'react.eval'
 
 
 
-const BottomBar=({setP1action})=>{
+const BottomBar=({setUserAction})=>{
   // [action, setAction]=React.useState();
   // React.useEffect(() => {
 
@@ -16,19 +16,19 @@ const BottomBar=({setP1action})=>{
 
     const glowStickClick =React.useCallback(()=>{
       react('glowstick.onClick');
-      setP1action(2);
+      setUserAction(2);
     },[]);
 
     const heartClick =React.useCallback(()=>{
       react('heart.onClick');
-      setP1action(1);
+      setUserAction(1);
     },[]);
 
 
     const jumpClick =React.useCallback(()=>{
       react('indiJump.onClick');
       react('jumpfinish.onClick');
-      setP1action(3);
+      setUserAction(3);
     },[]);
 
 

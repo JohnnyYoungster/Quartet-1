@@ -3,6 +3,7 @@ import TweenOne from "rc-tween-one";
 import "./avatars.css"
 import avatar1 from '../../image/avatar1.png'
 import avatar2 from '../../image/avatar2.png';
+import userAvatar from '../../image/userAvatar.png';
 import JoinJumpGroup from './../../animations/joinjumpgroup/JoinJumpGroup';
 import { react } from 'react.eval'
 import Animate from 'rc-animate'
@@ -28,7 +29,8 @@ export default class Avatars extends React.Component {
     this.setState({
       show: !this.state.show,
     });
-
+    const num= this.state.show ? 0: 5
+    this.props.setUserAction(num);
     /*
     setTimeout(() => {this.setState({
       show: !this.state.show,
@@ -294,7 +296,8 @@ export default class Avatars extends React.Component {
                transformOrigin: 'center bottom',
              }}
              >
-               <img className="avatar7" src={avatar1} alt="avatar" />
+               {this.props.p1action==5 ? <img className="avatar7" src={userAvatar} alt="avatar1" />
+               : <img className="avatar7" src={avatar1} alt="avatar1" />}
            </TweenOne>
    
    
@@ -326,7 +329,8 @@ export default class Avatars extends React.Component {
                transformOrigin: 'center bottom',
              }}
              >
-               <img className="avatar8" src={avatar2} alt="avatar2" />
+               {this.props.p2action==5 ? <img className="avatar8" src={userAvatar} alt="avatar2" />
+               : <img className="avatar8" src={avatar2} alt="avatar2" />}
            </TweenOne>
            <JoinJumpGroup></JoinJumpGroup>
    

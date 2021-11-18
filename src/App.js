@@ -29,6 +29,8 @@ const App = () => {
     const [ playing, setPlaying]=React.useState(false);
 
     const [userAction, setUserAction]=React.useState(0);
+    const [userScore, setUserScore]=React.useState(0);
+    const [opScore, setOpScore]=React.useState(0);    
 
     const [p1action, setP1action]=React.useState(0);
     const [p1name, setP1name]=React.useState("");
@@ -74,27 +76,31 @@ const App = () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
             // console.log(p1action);
-            // console.log(response.data.p1name);
-            // console.log(response.data.p1action);
-            // console.log(response.data.p2name);
-            // console.log(response.data.p2action);
+            console.log(response.data.p1name);
+            console.log(response.data.p1action);
+            console.log(response.data.p2name);
+            console.log(response.data.p2action);
             if(isAudience ){
                 setPlaying(response.data.isPlaying);
                 if(response.data.broadcast!=""){setBroadcast(response.data.broadcast);}
-                if(response.data.p2name===token){
+                if(response.data.p2name==token){
                     setP2name(response.data.p1name);
                     setP1name(response.data.p2name);
                     setP2action(response.data.p1action);
+                    setOpScore(response.data.p1score);
                 }
-                else if(response.data.p1name===token){
+                else if(response.data.p1name==token){
                     setP1name(response.data.p1name);
                     setP2name(response.data.p2name);
                     setP2action(response.data.p2action);
+                    setOpScore(response.data.p2score);
                 }
             }
             else{
                 setP1name(response.data.p1name);
                 setP2name(response.data.p2name);
+                setP1action(response.data.p1action);
+                setP2action(response.data.p2action);
             }
             },3000);}
         })();
@@ -127,6 +133,18 @@ const App = () => {
         }
     }, [token]);
 
+    // Send score data
+    useEffect(() => {
+        if(isAudience && token!=undefined){
+            (async () => {
+                const response = await instance.get('/score',{params:{
+                    name: token,
+                    score: userScore
+                }});
+            })();
+        }
+    }, [userScore]);
+
     // Login Screen
 
     if (!token) {
@@ -147,7 +165,7 @@ const App = () => {
             />
             <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}
             p1name={p1name} p2name={p2name}
-            setP1action={setUserAction}
+            setUserAction={setUserAction}
             p1action={p1action} p2action={p2action}
             />
             { isAudience ? <Audience /> : <Performer /> }
