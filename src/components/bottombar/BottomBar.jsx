@@ -1,10 +1,13 @@
 import React from 'react'
 import "./bottombar.css"
+import "../../pages/audience/index.jsx"
 import heartLogo from "../../image/heartLogo.png"
 import jumpLogo from "../../image/jumpLogo.png"
 import glow from "../../image/glowstick.png"
+import clapImg from '../../image/clap.png';
 //import Swing from "./../glowstickanimation/GlowStickAnimation.jsx"
 import { react } from 'react.eval'
+
 
 
 
@@ -31,6 +34,15 @@ const BottomBar=({setUserAction})=>{
       setUserAction(3);
     },[]);
 
+    const clapClick =React.useCallback(()=>{
+      document.getElementById("minigameWindow").style.width = "400px";
+      document.getElementById("closeButton").onclick = function()
+      {
+        document.getElementById("minigameWindow").style.transition = "0s";
+        document.getElementById("minigameWindow").style.width = "0px";
+      }
+    },[]);
+
 
     return (
         <div className = "bottom">
@@ -39,6 +51,7 @@ const BottomBar=({setUserAction})=>{
             <img className="heartLogo" src={heartLogo} alt="heartLogo" onClick={heartClick} />
             <img className="jumpLogo" src={jumpLogo} alt="jumpLogo" onClick={jumpClick} />
             <img className="glow" src={glow} alt="glow" onClick={glowStickClick} />
+            <img className="clap" src={clapImg} alt="clap" onClick={clapClick} />
 
         </div>
     )

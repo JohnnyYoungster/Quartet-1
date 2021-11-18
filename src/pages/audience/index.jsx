@@ -76,8 +76,6 @@ function Audience() {
 
       </div>
 
-      <div id="button"></div>
-
 
 
     </div>

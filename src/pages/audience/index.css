@@ -12,8 +12,9 @@ body {
 }
 
 #button {
+  right: 100px;
   width: 200px;
-  height: 200px;
+  height: 70px;
   background-color: blue;
   display: solid;
   position: absolute; 
