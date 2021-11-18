@@ -1,3 +1,4 @@
+import React from 'react'
 import "./bottombar.css"
 import heartLogo from "../../image/heartLogo.png"
 import jumpLogo from "../../image/jumpLogo.png"
@@ -7,20 +8,28 @@ import { react } from 'react.eval'
 
 
 
-export default function BottomBar() {
-    const glowStickClick =(event)=>{
-      react('glowstick.onClick')
-    }
+const BottomBar=({setP1action})=>{
+  // [action, setAction]=React.useState();
+  // React.useEffect(() => {
 
-    const heartClick =(event)=>{
-      react('heart.onClick')
-    }
+  // },[]);
+
+    const glowStickClick =React.useCallback(()=>{
+      react('glowstick.onClick');
+      setP1action(2);
+    },[]);
+
+    const heartClick =React.useCallback(()=>{
+      react('heart.onClick');
+      setP1action(1);
+    },[]);
 
 
-    const jumpClick =(event)=>{
-      react('indiJump.onClick')
-      react('jumpfinish.onClick')
-    }
+    const jumpClick =React.useCallback(()=>{
+      react('indiJump.onClick');
+      react('jumpfinish.onClick');
+      setP1action(3);
+    },[]);
 
 
     return (
@@ -33,7 +42,9 @@ export default function BottomBar() {
 
         </div>
     )
-}
+};
+export default BottomBar;
+
 
 
 

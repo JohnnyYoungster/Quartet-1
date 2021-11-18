@@ -28,17 +28,16 @@ const App = () => {
     const [ broadcast, setBroadcast]=React.useState("");
     const [ playing, setPlaying]=React.useState(false);
 
-    const [p1action, setP1action]=React.useState();
+    const [userAction, setUserAction]=React.useState(0);
+
+    const [p1action, setP1action]=React.useState(0);
     const [p1name, setP1name]=React.useState("");
     const [p2name, setP2name]=React.useState("");
-
     const [p2action, setP2action]=React.useState(0);
 
     useEffect(() => {
-        // console.log('initial');
         (async () => {
             const response = await instance.get('/test');
-            // console.log(response.data);
         })();
     }, []);
 
@@ -63,7 +62,7 @@ const App = () => {
                     isAudience: isAudience,
                     broadcast: broadcast
                 }});
-                console.log(response.data.broadcast);
+                // console.log(response.data.broadcast);
             })();
         }
     }, [broadcast]);
@@ -74,49 +73,50 @@ const App = () => {
             if(token){
             setInterval(async ()=>
             {const response = await instance.get('/update');
+            // console.log(p1action);
+            // console.log(response.data.p1name);
+            // console.log(response.data.p1action);
+            // console.log(response.data.p2name);
+            // console.log(response.data.p2action);
             if(isAudience ){
                 setPlaying(response.data.isPlaying);
                 if(response.data.broadcast!=""){setBroadcast(response.data.broadcast);}
-            }
-            if(!isAudience){
-                setP1name(response.data.p1name);
-                setP2name(response.data.p2name);
-            }
-            else{
                 if(response.data.p2name===token){
                     setP2name(response.data.p1name);
                     setP1name(response.data.p2name);
+                    setP2action(response.data.p1action);
                 }
                 else if(response.data.p1name===token){
                     setP1name(response.data.p1name);
                     setP2name(response.data.p2name);
+                    setP2action(response.data.p2action);
                 }
             }
-            // if(response.data.p1name!=undefined){
-            //     setP1name(response.data.p1name);
-            // }
-            // if(response.data.p2name!=undefined){
-            //     setP2name(response.data.p2name);
-            // }
+            else{
+                setP1name(response.data.p1name);
+                setP2name(response.data.p2name);
+            }
             },3000);}
         })();
     }, [token]);
 
     // Send action data
     useEffect(() => {
-        if(!isAudience){
+        if(isAudience){
+            // console.log("sending data");
+            // console.log(userAction);
             (async () => {
                 const response = await instance.get('/action',{params:{
                     name: token,
-                    action: p1action
+                    action: userAction
                 }});
             })();
         }
-    }, [p1action]);
+    }, [userAction]);
 
     // Send login data
     useEffect(() => {
-        console.log(token);
+        // console.log(token);
         if(isAudience && token!=undefined){
             (async () => {
                 const response = await instance.get('/name',{params:{
@@ -147,6 +147,8 @@ const App = () => {
             />
             <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}
             p1name={p1name} p2name={p2name}
+            setP1action={setUserAction}
+            p1action={p1action} p2action={p2action}
             />
             { isAudience ? <Audience /> : <Performer /> }
         </Router>
