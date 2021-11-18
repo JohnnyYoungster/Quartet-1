@@ -29,8 +29,8 @@ export default class Avatars extends React.Component {
     this.setState({
       show: !this.state.show,
     });
-    const num= this.state.show ? 0: 5
-    this.props.setUserAction(num);
+    // const num= this.state.show ? 0: 5
+    this.props.setUserAction(5);
     /*
     setTimeout(() => {this.setState({
       show: !this.state.show,
