@@ -1,0 +1,37 @@
+.minigamecrowd{
+    position: absolute;
+    display: flex;
+    top: 0%;
+    height: 7%;
+    top: 80%;
+}
+ 
+
+
+.avatar9{
+    margin-left: 3%;
+}
+
+.avatar10{
+    margin-left: 5%;
+}
+.avatar11{
+    margin-left: 150px;
+}
+.avatar12{
+    margin-left: 100%;
+}
+.avatar13{
+    margin-left: 3%;
+}
+
+
+.npcHeart{
+    width: 50%;
+    position: absolute;
+    top: -100%;
+}
+
+.npcSwing{
+top: 80%;
+}

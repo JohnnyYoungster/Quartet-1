@@ -2,6 +2,7 @@ import "./leavejumpgroup.css"
 import React from "react"
 import Animate from 'rc-animate';
 import LeavePrompt from "../../components/prompt/LeavePrompt";
+import Button from "antd/lib/button";
 
 
 export default class LeaveJumpGroup extends React.Component{
@@ -26,7 +27,8 @@ export default class LeaveJumpGroup extends React.Component{
     render(){
       return (
         <>
-            <div className="Labell" onClick={this.onClick}> #clickToLeave</div>
+            {/*<div className="Labell" onClick={this.onClick}> #clickToLeave</div>*/}
+            <Button className="leavebutton" type="primary" onClick={this.onClick}>Leave</Button>
 
             <Animate
                 transitionName="fade"

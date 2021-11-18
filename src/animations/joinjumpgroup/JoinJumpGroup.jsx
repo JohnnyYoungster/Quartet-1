@@ -2,6 +2,7 @@ import "./joinjumpgroup.css"
 import React from "react"
 import Animate from 'rc-animate';
 import JoinPrompt from "../../components/prompt/JoinPrompt";
+import Button from "antd/lib/button";
 
 
 export default class JoinJumpGroup extends React.Component{
@@ -25,8 +26,9 @@ export default class JoinJumpGroup extends React.Component{
 
     render(){
       return (
-        <>
-            <div className="Label" onClick={this.onClick}> #clickToJoin</div>
+        <>  
+            <Button className="joinbutton" type="primary" onClick={this.onClick}>Join</Button>
+            {/*<div className="Label" onClick={this.onClick}> #clickToJoin</div>*/}
 
             <Animate
                 transitionName="fade"

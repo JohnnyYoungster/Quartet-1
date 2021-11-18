@@ -11,7 +11,7 @@ import Avatars from '../animations/avatars/Avatars';
 import AfterJoin from '../animations/afterjoin/AfterJoin';
 import UserAvatarVanish from '../animations/useravatarvanish/UserAvatarVanish';
 import AnnounceBar from './bottombar/AnnounceBar';
-
+import NPC from './npc/NPC';
 
 
 
@@ -46,6 +46,7 @@ const AvatarStage = ({ isAudience, setBroadcast}) => {
 
             <UserAvatarVanish id='vanish'/>
             <Avatars id='ava'></Avatars>
+            <NPC/>
         </Layout>
         
         
