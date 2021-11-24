@@ -11,6 +11,7 @@ export default class JoinJumpGroup extends React.Component{
       super(...arguments);
       this.state = {
         show: false,
+        isAudience: this.props.isAudience,
       };
       [
         'onClick',
@@ -27,7 +28,9 @@ export default class JoinJumpGroup extends React.Component{
     render(){
       return (
         <>  
-            <Button className="joinbutton" type="primary" onClick={this.onClick}>Join</Button>
+            { this.state.isAudience &&
+              <Button className="joinbutton" type="primary" onClick={this.onClick}>Join</Button>
+            }
             {/*<div className="Label" onClick={this.onClick}> #clickToJoin</div>*/}
 
             <Animate

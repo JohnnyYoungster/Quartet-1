@@ -332,7 +332,7 @@ export default class Avatars extends React.Component {
                {this.props.p2action==5 ? <img className="avatar8" src={userAvatar} alt="avatar2" />
                : <img className="avatar8" src={avatar2} alt="avatar2" />}
            </TweenOne>
-           <JoinJumpGroup></JoinJumpGroup>
+           <JoinJumpGroup isAudience={this.props.isAudience}></JoinJumpGroup>
    
            
    

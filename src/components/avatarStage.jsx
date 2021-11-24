@@ -50,7 +50,7 @@ const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name,
 
             {isAudience && <UserAvatarVanish id='vanish'/> }
             <Avatars id='ava' setUserAction={setUserAction} p2action={p2action}
-            p1action={p1action}
+            p1action={p1action} isAudience={isAudience}
             ></Avatars>
             <Partner action={p2action} name={p2name}/> 
             {!isAudience && <Partner2 action={p1action} name={p1name}/>}
