@@ -3,9 +3,11 @@ import './index.css';
 import clapImg from '../../image/clap.png';
 import clap from '../../components/resources/clap.mp3'
 import gsap from 'gsap'
+import instance from '../../axiosFactory';
 
 var decreaseFlag;
 var score = 0;
+var name="";
 const clap_audio =new Audio(clap);
 function startDecrease() {  
   if (!decreaseFlag) {
@@ -56,8 +58,12 @@ function closeSideWindow() {
   document.getElementById("minigameWindow").style.width = "0px";
 }
 
-function Audience() {
+
+function Audience({opScore,token}) {
   // const clap_audio = React.useMemo(() => new Audio(clap), []);
+
+  // Send score data
+  name=token;
   return (
     <div className="App">
       <div id="minigameWindow" class="sideWindow">
@@ -67,6 +73,7 @@ function Audience() {
         <p>Press the orange clap button when the inner red outline matches with the shape of the button.</p>
 
         <p id="displayScore" color="white"></p>
+        {opScore!=0 && <p>Opponent: {opScore}</p>}
         <div class = "container">
           <div id="box">
             <img src = {clapImg}></img>
@@ -138,8 +145,19 @@ function initButton() {
       score = 0;
     }
 
-    document.getElementById("displayScore").innerHTML="Your Score is: " + score;
+    
 
+    document.getElementById("displayScore").innerHTML="Your Score is: " + score;
+    if(name!=""){
+      (async () => {
+          const response = await instance.get('/score',{params:{
+              name: name,
+              score: score
+          }});
+      })();
+    }
+    // console.log("current score");
+    // console.log(score);
     makeBox();
   }
   document.getElementById("displayScore").innerHTML="Your Score is: " + score;

@@ -29,7 +29,6 @@ const App = () => {
     const [ playing, setPlaying]=React.useState(false);
 
     const [userAction, setUserAction]=React.useState(0);
-    const [userScore, setUserScore]=React.useState(0);
     const [opScore, setOpScore]=React.useState(0);    
 
     const [p1action, setP1action]=React.useState(0);
@@ -76,10 +75,8 @@ const App = () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
             // console.log(p1action);
-            console.log(response.data.p1name);
-            console.log(response.data.p1action);
-            console.log(response.data.p2name);
-            console.log(response.data.p2action);
+            // console.log(response.data.p1score);
+            // console.log(response.data.p2score);
             if(isAudience ){
                 setPlaying(response.data.isPlaying);
                 if(response.data.broadcast!=""){setBroadcast(response.data.broadcast);}
@@ -133,17 +130,7 @@ const App = () => {
         }
     }, [token]);
 
-    // Send score data
-    useEffect(() => {
-        if(isAudience && token!=undefined){
-            (async () => {
-                const response = await instance.get('/score',{params:{
-                    name: token,
-                    score: userScore
-                }});
-            })();
-        }
-    }, [userScore]);
+    
 
     // Login Screen
 
@@ -168,7 +155,7 @@ const App = () => {
             setUserAction={setUserAction}
             p1action={p1action} p2action={p2action}
             />
-            { isAudience ? <Audience /> : <Performer /> }
+            { isAudience ? <Audience opScore={opScore} token={token}/> : <Performer /> }
         </Router>
     );
 };
