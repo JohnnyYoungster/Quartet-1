@@ -35,6 +35,7 @@ const BottomBar=({setUserAction})=>{
     },[]);
 
     const clapClick =React.useCallback(()=>{
+      setUserAction(4);
       document.getElementById("minigameWindow").style.width = "400px";
       document.getElementById("closeButton").onclick = function()
       {

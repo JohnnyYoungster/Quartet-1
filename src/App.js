@@ -75,8 +75,8 @@ const App = () => {
             setInterval(async ()=>
             {const response = await instance.get('/update');
             // console.log(p1action);
-            // console.log(response.data.p1score);
-            // console.log(response.data.p2score);
+            // console.log(response.data.p1action);
+            // console.log(response.data.p2action);
             if(isAudience ){
                 setPlaying(response.data.isPlaying);
                 if(response.data.broadcast!=""){setBroadcast(response.data.broadcast);}
@@ -149,6 +149,7 @@ const App = () => {
                 isAudience={isAudience} 
                 msg={broadcast} 
                 sendServerPlay={setPlaying} playedFromServer={playing} 
+                isClapping={p1action==4 || p2action==4}
             />
             <AvatarStage isAudience={isAudience} setBroadcast={setBroadcast}
             p1name={p1name} p2name={p2name}

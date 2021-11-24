@@ -20,7 +20,7 @@ const Partner=({action,name})=> {
         return (
           <>
             <div className="partner2">
-            { action <3 &&
+            { (action <3 || action==4) &&
             <img className="partnerNothing" src={userAvatar} alt="userAvatar"/>
             }
             
@@ -58,7 +58,7 @@ const Partner=({action,name})=> {
               {name}
            </TweenOne>
               }
-              {action < 3 && name}
+              {(action <3 || action==4) && name}
             </div>  
             
           </>
