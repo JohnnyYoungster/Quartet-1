@@ -45,7 +45,7 @@ const AvatarStage = ({ isAudience, setBroadcast, p1name, p2name,
             
             </Draggable>
             */}
-            { isAudience &&<AfterJoin id='aferjoin'/> }
+            { isAudience &&<AfterJoin id='aferjoin' action={p2action}/> }
             {/*<IndividualJump id='indiJump' />*/}
 
             {isAudience && <UserAvatarVanish id='vanish'/> }

@@ -303,7 +303,10 @@ export default class AfterJoin extends React.Component{
                      transformOrigin: 'center bottom',
                    }}
                    >
-                     <img className="avatar8" src={avatar2} alt="avatar2" />
+                     {this.props.action==5 ?
+                     <img className="avatar8" src={userAvatar} alt="avatar2" />
+                     : <img className="avatar8" src={avatar2} alt="avatar2" />
+                      }
                  </TweenOne>
                  
                  <TweenOne
